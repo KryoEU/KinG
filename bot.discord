@@ -1,0 +1,40 @@
+const Discord = require('discord.js');
+
+var bot = new Discord.Client();
+var prefix = ("/");
+
+bot.on('ready', () => {
+    bot.user.setPresence({ game:  { name: '[KinG]', type: 0} });
+    console.log("Bot Ready !");
+});
+
+bot.login('process.env.BOT_TOKEN');
+
+bot.on('message', message => {
+    if (message.content === "yo"){
+        message.reply("yo");
+        console.log('yo écrit');
+    }
+
+    if (message.content === "Yo"){
+        message.reply("Yo !");
+        console.log('Yo écrit');
+    }
+
+    if (message.content === prefix + "help"){
+        var help_embed = new Discord.RichEmbed()
+            .setColor('#017FD4')
+            .addField("Commandes du bot !", "/help : Pour afficher les commandes !")
+        message.channel.sendEmbed(help_embed);    
+        //message.channel.sendMessage("Voici les commandes du bot :\n -/help pour afficher les commandes");
+        console.log("Commande Help demandée !");
+    }
+    if (message.content=== "slt"){
+        message.reply("salut !");
+        console.log('slt écrit')
+    }
+
+         
+
+
+});
