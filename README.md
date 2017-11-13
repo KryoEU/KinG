@@ -1,2 +1,0 @@
-# KinG
-Bot using heroku
